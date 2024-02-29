@@ -1,10 +1,16 @@
+# Overview
+
 # Prerequisites
+
+This section will cover the prerequisites required to be in place before we commence the configuration of the bootstrap virtual machine and deployment of the Tanzu Management and Workload Cluster
 
 ## Azure 
 
+### Virtual Network
+
 ### Creation of Service Principal
 
-
+## Bootstrap Virtual Machine
 
 ## Internet Egress Requirements
 
@@ -35,13 +41,11 @@ https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-safelist-urls?
 
 
 ### Docker 
-
 |URL|Purpose|Source|
 |-----|-----|-----|
 |https://download.docker.com|Requires for the installation of Docker Engine|Bootstrap machine|
 
 https://docs.docker.com/engine/install/ubuntu/
-
 
 ### VMware 
 |Description|URL|Source|

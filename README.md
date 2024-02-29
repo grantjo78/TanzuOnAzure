@@ -43,7 +43,7 @@ https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-safelist-urls?
 ### Docker 
 |URL|Purpose|Source|
 |-----|-----|-----|
-|https://download.docker.com|Requires for the installation of Docker Engine|Bootstrap machine|
+|download.docker.com|Requires for the installation of Docker Engine|Bootstrap machine|
 
 https://docs.docker.com/engine/install/ubuntu/
 
@@ -61,7 +61,7 @@ https://docs.vmware.com/en/VMware-Tanzu-Kubernetes-Grid/2.4/tkg-deploy-mc/mgmt-r
 
 |URL|Purpose|Source|
 |-----|-----|-----|
-|https://kind.sigs.k8s.io||Bootstrap machine||
+|kind.sigs.k8s.io||Bootstrap machine||
 |github.com||Bootstrap machine|
 |objects.githubusercontent.com||Bootstrap machine|
 

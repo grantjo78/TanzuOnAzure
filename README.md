@@ -6,12 +6,9 @@
 
 Installation of Azure Cli onto bootstrap virtual machine
 
-|URL|Purpose|
-|-----|-----|
-|||
-
 References
-https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-safelist-urls?tabs=public-cloud
+https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt
+
 
 ### Service Principal
 
@@ -38,6 +35,10 @@ https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-safelist-urls?
 |*.ext.azure.com|Azure portal framework|
 |*.graph.windows.net|Azure portal framework|
 |*.graph.microsoft.com|Azure portal framework|
+
+References
+https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-safelist-urls?tabs=public-cloud
+
 
 ### Docker 
 

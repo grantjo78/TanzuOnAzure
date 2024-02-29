@@ -1,6 +1,43 @@
 # Prerequisites
 
+## Azure 
+
+### Azure Cli
+
+Installation of Azure Cli onto bootstrap virtual machine
+
+|URL|Purpose|
+|-----|-----|
+|||
+
+References
+https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-safelist-urls?tabs=public-cloud
+
+### Service Principal
+
+
+
 ## Outbound Internet Egress Requirements
+
+### Azure
+|URL|Purpose|
+|-----|-----|
+|login.microsoftonline.com|Azure portal authentication|
+|*.aadcdn.msftauth.net|Azure portal authentication|
+|*.aadcdn.msftauthimages.net|Azure portal authentication|
+|*.aadcdn.msauthimages.net|Azure portal authentication|
+|*.logincdn.msftauth.net|Azure portal authentication|
+|login.live.com|Azure portal authentication|
+|*.msauth.net|Azure portal authentication|
+|*.aadcdn.microsoftonline-p.com|Azure portal authentication|
+|*.microsoftonline-p.com|Azure portal authentication|
+|*.portal.azure.com|Azure portal framework|
+|*.hosting.portal.azure.net|Azure portal framework|
+|*.reactblade.portal.azure.net|Azure portal framework|
+|management.azure.com|Azure portal framework|
+|*.ext.azure.com|Azure portal framework|
+|*.graph.windows.net|Azure portal framework|
+|*.graph.microsoft.com|Azure portal framework|
 
 ### Docker 
 
@@ -34,3 +71,7 @@ https://docs.vmware.com/en/VMware-Tanzu-Kubernetes-Grid/2.4/tkg-deploy-mc/mgmt-r
 
 References
 https://kind.sigs.k8s.io/docs/user/quick-start/
+
+# Deployment
+
+## Bootstrap Machine

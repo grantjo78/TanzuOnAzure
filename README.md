@@ -8,7 +8,7 @@ This section will cover the prerequisites required to be in place before we comm
 
 ### Virtual Network
 
-### Creation of Service Principal
+### Service Principal
 
 ## Bootstrap Virtual Machine
 

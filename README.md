@@ -24,9 +24,37 @@ Prior to deploying the bootstramp virtual machine and TKG clusters, there are se
   
 ## Virtual Network Configuration
 
+A subnet for the management cluster control plane node
+A Network Security Group (NSG) in the cluster’s VNet resource group that is on the control plane subnet and has the following inbound security rules, to enable SSH and Kubernetes API server connections:
+Allow TCP over port 22 for any source and destination
+Allow TCP over port 6443 for any source and destination Port 6443 is where the Kubernetes API is exposed on VMs in the clusters you create. To change this port for a management or a workload cluster, set the CLUSTER_API_SERVER_PORT variable when deploying the cluster.
+A subnet for the management cluster worker nodes
+An NSG for the management cluster worker nodes that is in the cluster’s VNet resource group and on the cluster’s worker node subnet
+
+
+https://docs.vmware.com/en/VMware-Tanzu-Kubernetes-Grid/2.4/tkg-deploy-mc/mgmt-reqs-prep-azure.html
+
 ### Subnet Configuration
 
 ### Network Security Groups
+
+Tanzu Kubernetes Grid management and workload clusters on Azure require two Network Security Groups (NSGs) to be defined on their VNet and in their VNet resource group:
+
+An NSG named CLUSTER-NAME-controlplane-nsg and associated with the cluster’s control plane subnet
+An NSG named CLUSTER-NAME-node-nsg and associated with the cluster’s worker node subnet
+
+Where CLUSTER-NAME is the name of the cluster.
+
+Caution
+Giving NSGs names that do not follow the format above may prevent deployment.
+
+If you specify an existing VNet for the management cluster, you must create these NSGs as described in the General Requirements above. An existing VNet for a management cluster is specified with Select an existing VNet in the installer interface or AZURE_VNET_NAME in its configuration file.
+
+If you do not specify an existing VNet for the cluster, the deployment process creates a new VNet and the required NSGs.
+
+See the Microsoft Azure table in the Configuration File Variable Reference for how to configure the cluster’s VNet, resource groups, and subnets.
+
+
 
 ## Internet Egress Requirements
 

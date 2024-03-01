@@ -1,20 +1,36 @@
 # Overview
 
-# Prerequisites
+The article will document the journey I went through deploying a VMware Tanzu Kubernetes Grid (TKG) onto Azure.
 
-This section will cover the prerequisites required to be in place before we commence the configuration of the bootstrap virtual machine and deployment of the Tanzu Management and Workload Cluster
+My objective was to:
+- [x] Deploy an Azure Standalone Tanzu Kubernetes Grid Management Cluster
+- [x] Append a Workload Cluster to the environment
+- [x] Ensure that the cluster API are only accessible from within the vNet
 
-## Azure 
+To restrict the cluster API to within the vNet, the  TKG clusters need to be deployed as Private Clusters. By default, Azure management and workload clusters are public. They can be configure to be private, which means their API server uses an Azure internal load balancer (ILB) and is therefore only accessible from within the cluster’s own VNet or peered VNets
 
-### Virtual Network
+*[Tanzu Kubernetes Grid v2.4.x is the last version of TKG that supports the creation of TKG management and workload clusters on Azure. The ability to create TKG workload clusters on Azure will be removed in the Tanzu Kubernetes Grid v2.5 release.](https://docs.vmware.com/en/VMware-Tanzu-Kubernetes-Grid/2.4/tkg-deploy-mc/mgmt-release-notes.html)*
 
-### Service Principal
+# Pre-Deployment Prerequisites
 
-## Bootstrap Virtual Machine
+Prior to deploying the bootstramp virtual machine and TKG clusters, there are several prerequisites that need to be addressed:
+- Creation of Service Principal
+- Virtual Network Configuration
+  - Subnets
+  - Network Security Groups
+- Internet Egress Requirements
+
+## Creation of Service Principal
+  
+## Virtual Network Configuration
+
+### Subnet Configuration
+
+### Network Security Groups
 
 ## Internet Egress Requirements
 
-This section identifies the URLs that will need to be allowed out via a firewall or proxy if in use.
+If you are utilising a firewall or proxy solution that requires URLs to explicitly Allowed through for internet egress, the below tables documents what I was able to capture.
 
 ### Azure
 |URL|Purpose|Source|
@@ -78,3 +94,4 @@ Installation of Azure Cli onto bootstrap virtual machine
 References
 https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt
 
+# Issues

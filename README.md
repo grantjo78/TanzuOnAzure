@@ -91,13 +91,13 @@ https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-safelist-urls?
 |api.segment.io|443|	Analytics|
 |cdn.segment.com|443|	Analytics|
 |api.wootric.com|443|	Analytics|
-|cdn.wootric.com|443 Analytics|
+|cdn.wootric.com|443| Analytics|
 |notify.bugsnag.com|443|	Error reports|
 |sessions.bugsnag.com|443|	Error reports|
 |auth.docker.io|443|	Authentication|
 |cdn.auth0.com|443|	Authentication|
 |login.docker.com|443|	Authentication|
-|desktop.docker.com|	Update|
+|desktop.docker.com|443|	Update|
 |hub.docker.com|443|	Docker Pull/Push|
 |registry-1.docker.io|443|	Docker Pull/Push|
 |production.cloudflare.docker.com|443|	Docker Pull/Push|

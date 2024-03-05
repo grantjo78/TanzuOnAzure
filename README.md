@@ -124,7 +124,12 @@ https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt
 
 ### Tanzu Cli
 
-![image](https://github.com/grantjo78/TanzuOnAzure/assets/13568191/7a16d905-3677-44ce-bbeb-e6570065fe54)
+As per the Tanzu Cli [Product Interoperability Matrix](https://interopmatrix.vmware.com/Interoperability?col=1772,&row=0,) only Tanzu Cli **1.0.0** and **1.1.0** are supported for TKG **2.4.1**.
+
+![image](img/TanzuCliMatrix.png)
+
+If you follow the below instructions, this will install the latest TKG Cli (1.2.0) which may cause issues.
+
 
 
 # Issues

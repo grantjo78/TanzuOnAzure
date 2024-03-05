@@ -25,14 +25,6 @@ Prior to deploying the bootstramp virtual machine and TKG clusters, there are se
 ## Virtual Network Configuration
 
 
-A Network Security Group (NSG) in the cluster’s VNet resource group that is on the control plane subnet and has the following inbound security rules, to enable SSH and Kubernetes API server connections:
-Allow TCP over port 22 for any source and destination
-Allow TCP over port 6443 for any source and destination Port 6443 is where the Kubernetes API is exposed on VMs in the clusters you create. To change this port for a management or a workload cluster, set the CLUSTER_API_SERVER_PORT variable when deploying the cluster.
-A subnet for the management cluster worker nodes
-An NSG for the management cluster worker nodes that is in the cluster’s VNet resource group and on the cluster’s worker node subnet
-
-
-https://docs.vmware.com/en/VMware-Tanzu-Kubernetes-Grid/2.4/tkg-deploy-mc/mgmt-reqs-prep-azure.html
 
 ### Subnet Configuration
 
@@ -66,6 +58,8 @@ TKG on Azure requires two Network Security Groups (NSGs) to be defined on their 
 |Outbound|Management Subnet|Management Subnet|22|TCP|
 |Outbound|Management Subnet|Management Subnet|6443|TCP|
 
+https://docs.vmware.com/en/VMware-Tanzu-Kubernetes-Grid/2.4/tkg-deploy-mc/mgmt-reqs-prep-azure.html
+
 ## Internet Egress Requirements
 
 If you are utilising a firewall or proxy solution that requires URLs to explicitly Allowed through for internet egress, the below tables documents what I was able to capture.
@@ -98,21 +92,21 @@ https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-safelist-urls?
 |URL|Port|Purpose|Source|
 |-----|-----|-----|-----|
 |download.docker.com|443|Requires for the installation of Docker Engine|Bootstrap machine|
-|api.segment.io|443|	Analytics|
-|cdn.segment.com|443|	Analytics|
-|api.wootric.com|443|	Analytics|
-|cdn.wootric.com|443| Analytics|
-|notify.bugsnag.com|443|	Error reports|
-|sessions.bugsnag.com|443|	Error reports|
-|auth.docker.io|443|	Authentication|
-|cdn.auth0.com|443|	Authentication|
-|login.docker.com|443|	Authentication|
-|desktop.docker.com|443|	Update|
-|hub.docker.com|443|	Docker Pull/Push|
-|registry-1.docker.io|443|	Docker Pull/Push|
-|production.cloudflare.docker.com|443|	Docker Pull/Push|
-|docker-pinata-support.s3.amazonaws.com|433|	Troubleshooting|
-|api.dso.docker.com|443|	Docker Scout service|
+|api.segment.io|443|	Analytics|Bootstrap machine|
+|cdn.segment.com|443|	Analytics|Bootstrap machine|
+|api.wootric.com|443|	Analytics|Bootstrap machine|
+|cdn.wootric.com|443| Analytics|Bootstrap machine|
+|notify.bugsnag.com|443|	Error reports|Bootstrap machine|
+|sessions.bugsnag.com|443|	Error reports|Bootstrap machine|
+|auth.docker.io|443|	Authentication|Bootstrap machine|
+|cdn.auth0.com|443|	Authentication|Bootstrap machine|
+|login.docker.com|443|	Authentication|Bootstrap machine|
+|desktop.docker.com|443|	Update|Bootstrap machine|
+|hub.docker.com|443|	Docker Pull/Push|Bootstrap machine|
+|registry-1.docker.io|443|	Docker Pull/Push|Bootstrap machine|
+|production.cloudflare.docker.com|443|	Docker Pull/Push|Bootstrap machine|
+|docker-pinata-support.s3.amazonaws.com|433|	Troubleshooting|Bootstrap machine|
+|api.dso.docker.com|443|	Docker Scout service|Bootstrap machine|
 
 [https://docs.docker.com/engine/install/ubuntu/](https://docs.docker.com/desktop/allow-list/)
 

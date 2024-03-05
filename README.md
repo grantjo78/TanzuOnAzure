@@ -130,6 +130,8 @@ As per the Tanzu Cli [Product Interoperability Matrix](https://interopmatrix.vmw
 
 If you follow the below instructions, this will install the latest TKG Cli (1.2.0) which may cause issues.
 
+![image](img/TanzuCli-LatestVersion.png)
+
 
 
 # Issues

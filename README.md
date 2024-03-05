@@ -85,11 +85,26 @@ https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-safelist-urls?
 
 
 ### Docker 
-|URL|Purpose|Source|
-|-----|-----|-----|
-|download.docker.com|Requires for the installation of Docker Engine|Bootstrap machine|
+|URL|Port|Purpose|Source|
+|-----|-----|-----|-----|
+|download.docker.com|443|Requires for the installation of Docker Engine|Bootstrap machine|
+|api.segment.io|443|	Analytics|
+|cdn.segment.com|443|	Analytics|
+|api.wootric.com|443|	Analytics|
+|cdn.wootric.com|443 Analytics|
+|notify.bugsnag.com|443|	Error reports|
+|sessions.bugsnag.com|443|	Error reports|
+|auth.docker.io|443|	Authentication|
+|cdn.auth0.com|443|	Authentication|
+|login.docker.com|443|	Authentication|
+|desktop.docker.com|	Update|
+|hub.docker.com|443|	Docker Pull/Push|
+|registry-1.docker.io|443|	Docker Pull/Push|
+|production.cloudflare.docker.com|443|	Docker Pull/Push|
+|docker-pinata-support.s3.amazonaws.com|433|	Troubleshooting|
+|api.dso.docker.com|443|	Docker Scout service|
 
-https://docs.docker.com/engine/install/ubuntu/
+[https://docs.docker.com/engine/install/ubuntu/](https://docs.docker.com/desktop/allow-list/)
 
 ### VMware 
 |Description|URL|Source|

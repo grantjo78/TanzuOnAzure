@@ -122,4 +122,9 @@ Installation of Azure Cli onto bootstrap virtual machine
 References
 https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt
 
+### Tanzu Cli
+
+![image](https://github.com/grantjo78/TanzuOnAzure/assets/13568191/7a16d905-3677-44ce-bbeb-e6570065fe54)
+
+
 # Issues

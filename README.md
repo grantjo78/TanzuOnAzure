@@ -61,25 +61,25 @@ See the Microsoft Azure table in the Configuration File Variable Reference for h
 If you are utilising a firewall or proxy solution that requires URLs to explicitly Allowed through for internet egress, the below tables documents what I was able to capture.
 
 ### Azure
-|URL|Purpose|Source|
+|URL|Port|Purpose|Source|
 |-----|-----|-----|
-|login.microsoftonline.com|Azure portal authentication|Bootstrap machine|
-|*.aadcdn.msftauth.net|Azure portal authentication|Bootstrap machine|
-|*.aadcdn.msftauthimages.net|Azure portal authentication|Bootstrap machine|
-|*.aadcdn.msauthimages.net|Azure portal authentication|Bootstrap machine|
-|*.logincdn.msftauth.net|Azure portal authentication|Bootstrap machine|
-|login.live.com|Azure portal authentication|Bootstrap machine|
-|*.msauth.net|Azure portal authentication|Bootstrap machine|
-|*.aadcdn.microsoftonline-p.com|Azure portal authentication|Bootstrap machine|
-|*.microsoftonline-p.com|Azure portal authentication|Bootstrap machine|
-|*.portal.azure.com|Azure portal framework|Bootstrap machine|
-|*.hosting.portal.azure.net|Azure portal framework|Bootstrap machine|
-|*.reactblade.portal.azure.net|Azure portal framework|Bootstrap machine|
+|login.microsoftonline.com|443|Azure portal authentication|Bootstrap machine|
+|*.aadcdn.msftauth.net|443|Azure portal authentication|Bootstrap machine|
+|*.aadcdn.msftauthimages.net|443|Azure portal authentication|Bootstrap machine|
+|*.aadcdn.msauthimages.net|443|Azure portal authentication|Bootstrap machine|
+|*.logincdn.msftauth.net|443|Azure portal authentication|Bootstrap machine|
+|login.live.com|443|Azure portal authentication|Bootstrap machine|
+|*.msauth.net|443|Azure portal authentication|Bootstrap machine|
+|*.aadcdn.microsoftonline-p.com|443|Azure portal authentication|Bootstrap machine|
+|*.microsoftonline-p.com|443|Azure portal authentication|Bootstrap machine|
+|*.portal.azure.com|443|Azure portal framework|Bootstrap machine|
+|*.hosting.portal.azure.net|443|Azure portal framework|Bootstrap machine|
+|*.reactblade.portal.azure.net|443|Azure portal framework|Bootstrap machine|
 |management.azure.com|Azure portal framework|Bootstrap machine|
-|*.ext.azure.com|Azure portal framework|Bootstrap machine|
-|*.graph.windows.net|Azure portal framework|Bootstrap machine|
-|*.graph.microsoft.com|Azure portal framework|Bootstrap machine|
-|azure.archive.ubuntu.com|Updating Ubuntu|Bootstrap machine |
+|*.ext.azure.com|443|Azure portal framework|Bootstrap machine|
+|*.graph.windows.net|443|Azure portal framework|Bootstrap machine|
+|*.graph.microsoft.com|443|Azure portal framework|Bootstrap machine|
+|azure.archive.ubuntu.com|80, 443|Updating Ubuntu|Bootstrap machine |
 
 https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-safelist-urls?tabs=public-cloud
 

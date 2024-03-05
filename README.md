@@ -24,7 +24,7 @@ Prior to deploying the bootstramp virtual machine and TKG clusters, there are se
   
 ## Virtual Network Configuration
 
-A subnet for the management cluster control plane node
+
 A Network Security Group (NSG) in the cluster’s VNet resource group that is on the control plane subnet and has the following inbound security rules, to enable SSH and Kubernetes API server connections:
 Allow TCP over port 22 for any source and destination
 Allow TCP over port 6443 for any source and destination Port 6443 is where the Kubernetes API is exposed on VMs in the clusters you create. To change this port for a management or a workload cluster, set the CLUSTER_API_SERVER_PORT variable when deploying the cluster.
@@ -38,23 +38,33 @@ https://docs.vmware.com/en/VMware-Tanzu-Kubernetes-Grid/2.4/tkg-deploy-mc/mgmt-r
 
 ### Network Security Groups
 
-Tanzu Kubernetes Grid management and workload clusters on Azure require two Network Security Groups (NSGs) to be defined on their VNet and in their VNet resource group:
+TKG on Azure requires two Network Security Groups (NSGs) to be defined on their VNet and in their VNet resource group:
+- An NSG named CLUSTER-NAME-controlplane-nsg and associated with the cluster’s control plane (Management) subnet
+- An NSG named CLUSTER-NAME-node-nsg and associated with the cluster’s worker node (Workload) subnet
 
-An NSG named CLUSTER-NAME-controlplane-nsg and associated with the cluster’s control plane subnet
-An NSG named CLUSTER-NAME-node-nsg and associated with the cluster’s worker node subnet
+*Giving NSGs names that do not follow the format above may prevent deployment*
 
-Where CLUSTER-NAME is the name of the cluster.
+#### Bootstrap Subnet Network Security Group
+|Direction|Source|Destination|Port|Protocol|
+|-----|-----|-----|-----|-----|
+|Outbound|Bootstrap Subnet|Management Subnet<br>Workload Subnet|22|TCP|
+|Outbound|Bootstrap Subnet|Management Subnet<br>Workload Subnet|6443|TCP|
 
-Caution
-Giving NSGs names that do not follow the format above may prevent deployment.
+#### Management Subnet Network Security Group
+|Direction|Source|Destination|Port|Protocol|
+|-----|-----|-----|-----|-----|
+|Inbound|Bootstrap Subnet|Management Subnet|22|TCP|
+|Inbound|Bootstrap Subnet|Management Subnet|6443|TCP|
+|Outbound|Management Subnet|Workload Subnet|22|TCP|
+|Outbound|Management Subnet|Workload Subnet|6443|TCP|
 
-If you specify an existing VNet for the management cluster, you must create these NSGs as described in the General Requirements above. An existing VNet for a management cluster is specified with Select an existing VNet in the installer interface or AZURE_VNET_NAME in its configuration file.
-
-If you do not specify an existing VNet for the cluster, the deployment process creates a new VNet and the required NSGs.
-
-See the Microsoft Azure table in the Configuration File Variable Reference for how to configure the cluster’s VNet, resource groups, and subnets.
-
-
+#### Workload Subnet Network Security Group
+|Direction|Source|Destination|Port|Protocol|
+|-----|-----|-----|-----|-----|
+|Inbound|Bootstrap Subnet|Workload Subnet|22|TCP|
+|Inbound|Bootstrap Subnet|Workload Subnet|6443|TCP|
+|Outbound|Management Subnet|Management Subnet|22|TCP|
+|Outbound|Management Subnet|Management Subnet|6443|TCP|
 
 ## Internet Egress Requirements
 
@@ -161,4 +171,9 @@ sudo apt install -y tanzu-cli=1.1.0
 ```
 
 
-# Issues
+# Troubleshooting
+
+## File Locations
+
+|File Name/Type|Location|Purpose|
+|-----|-----|-----|

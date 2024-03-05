@@ -61,8 +61,8 @@ See the Microsoft Azure table in the Configuration File Variable Reference for h
 If you are utilising a firewall or proxy solution that requires URLs to explicitly Allowed through for internet egress, the below tables documents what I was able to capture.
 
 ### Azure
-|URL|Port|Purpose|Source|
-|-----|-----|-----|
+|URL|Ports|Purpose|Source|
+|-----|-----|-----|-----|
 |login.microsoftonline.com|443|Azure portal authentication|Bootstrap machine|
 |*.aadcdn.msftauth.net|443|Azure portal authentication|Bootstrap machine|
 |*.aadcdn.msftauthimages.net|443|Azure portal authentication|Bootstrap machine|
@@ -75,7 +75,7 @@ If you are utilising a firewall or proxy solution that requires URLs to explicit
 |*.portal.azure.com|443|Azure portal framework|Bootstrap machine|
 |*.hosting.portal.azure.net|443|Azure portal framework|Bootstrap machine|
 |*.reactblade.portal.azure.net|443|Azure portal framework|Bootstrap machine|
-|management.azure.com|Azure portal framework|Bootstrap machine|
+|management.azure.com|443| Azure portal framework|Bootstrap machine|
 |*.ext.azure.com|443|Azure portal framework|Bootstrap machine|
 |*.graph.windows.net|443|Azure portal framework|Bootstrap machine|
 |*.graph.microsoft.com|443|Azure portal framework|Bootstrap machine|
@@ -143,10 +143,22 @@ As per the Tanzu Cli [Product Interoperability Matrix](https://interopmatrix.vmw
 
 ![image](img/TanzuCliMatrix.png)
 
-If you follow the below instructions, this will install the latest TKG Cli (1.2.0) which may cause issues.
+If you follow the below instructions, this will install the latest Tanzu Cli (1.2.0) which may cause issues.
 
 ![image](img/TanzuCli-LatestVersion.png)
 
+
+To install Tanzu Cli 1.1.0 run the following commands.
+
+```
+sudo apt update
+sudo apt install -y ca-certificates curl gpg
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://packages.vmware.com/tools/keys/VMWARE-PACKAGING-GPG-RSA-KEY.pub | sudo gpg --dearmor -o /etc/apt/keyrings/tanzu-archive-keyring.gpg
+echo "deb [signed-by=/etc/apt/keyrings/tanzu-archive-keyring.gpg] https://storage.googleapis.com/tanzu-cli-os-packages/apt tanzu-cli-jessie main" | sudo tee /etc/apt/sources.list.d/tanzu.list
+sudo apt update
+sudo apt install -y tanzu-cli=1.1.0
+```
 
 
 # Issues

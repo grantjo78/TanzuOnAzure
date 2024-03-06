@@ -13,7 +13,7 @@ Prior to deploying the bootstramp virtual machine and TKG clusters, there are se
 
 The section will cover configuration required at the Azure networking level.
 
-### Subnet Configuration
+### Subnets
 
 For my implementation of TKG on Azure I created 3 subnets:
 - Bootstrap Subnet - This subnet is where I deployed the virtual machine that I utilised for the deployment of the Management cluster and various operartional tasks.

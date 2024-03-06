@@ -13,7 +13,7 @@ The bootstrap virtual machine that I utilised for the deploy of the TKG cluster 
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 ```
 
-References
+References<br>
 https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt
 
 ## Installation of Docker Engine
@@ -57,6 +57,7 @@ Step 6: Activate changes to the group
 newgrp docker
 ```
 
+References<br>
 https://docs.docker.com/engine/install/ubuntu/
 https://docs.docker.com/engine/install/linux-postinstall/
 

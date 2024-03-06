@@ -15,7 +15,9 @@ Prior to deploying the bootstramp virtual machine and TKG clusters, there are se
   
 ## Virtual Network Configuration
 
-The section will cover configuration required at the Azure networking level.
+The section will cover the following Azure networking requirements.
+- [Subnets](#subnets)
+- [Network Security Groups](#network-security-groups)
 
 ### Subnets
 
@@ -26,23 +28,23 @@ For my implementation of TKG on Azure I created 3 subnets:
 
 ### Network Security Groups
 
-TKG on Azure requires two Network Security Groups (NSGs) to be defined for the VNet which need to **exist within the VNet resource group**:
-- An NSG named CLUSTER-NAME-controlplane-nsg and associated with the cluster’s control plane (Management) subnet
-- An NSG named CLUSTER-NAME-node-nsg and associated with the cluster’s worker node (Workload) subnet
+TKG on Azure requires two Network Security Groups (NSGs) to be defined for the VNet. These NSGs need to **exist within the VNet resource group**.
+- An NSG named *CLUSTER-NAME-controlplane-nsg* and associated with the cluster’s control plane (Management) subnet
+- An NSG named *CLUSTER-NAME-node-nsg* and associated with the cluster’s worker node (Workload) subnet
 
 *e.g. if the Management cluster was named *tkg01-mgmt* the NSGs would need to be called:*
 - *tkg01-mgmt-controlplane-nsg*
 - *tkg01-mgmt-node-nsg*
 
-*Giving NSGs names that do not follow the format above may prevent deployment*
+*Giving NSGs names that do not follow the format above may prevent deployment or cause issues*
 
-#### Bootstrap Subnet Network Security Group
+#### Bootstrap Subnet NSG
 |Direction|Source|Destination|Port|Protocol|
 |-----|-----|-----|-----|-----|
 |Outbound|Bootstrap Subnet|Management Subnet<br>Workload Subnet|22|TCP|
 |Outbound|Bootstrap Subnet|Management Subnet<br>Workload Subnet|6443|TCP|
 
-#### Management Subnet Network Security Group
+#### Management Subnet NSG (CLUSTER-NAME-controlplane-nsg) 
 |Direction|Source|Destination|Port|Protocol|
 |-----|-----|-----|-----|-----|
 |Inbound|Bootstrap Subnet|Management Subnet|22|TCP|
@@ -50,7 +52,7 @@ TKG on Azure requires two Network Security Groups (NSGs) to be defined for the V
 |Outbound|Management Subnet|Workload Subnet|22|TCP|
 |Outbound|Management Subnet|Workload Subnet|6443|TCP|
 
-#### Workload Subnet Network Security Group
+#### Workload Subnet NSG (CLUSTER-NAME-node-nsg)
 |Direction|Source|Destination|Port|Protocol|
 |-----|-----|-----|-----|-----|
 |Inbound|Bootstrap Subnet|Workload Subnet|22|TCP|
@@ -62,7 +64,12 @@ https://docs.vmware.com/en/VMware-Tanzu-Kubernetes-Grid/2.4/tkg-deploy-mc/mgmt-r
 
 ## Internet Egress Requirements
 
-If you are utilising a firewall or proxy solution that requires URLs to explicitly allowed through for internet egress, the below tables documents what I was able to capture.
+The section documents URLs to allow through a firewall or proxy solution if URLs are required to be explictly allowed.  
+
+- [Azure Portal URLs](#azure-portal-urls)
+- [Docker Desktop URLs](#docker-desktop-urls)
+- [VMware URLs](#vmware-urls)
+- [Kind URLs](#kind-urls)
 
 ### Azure Portal URLs
 |URL|Ports|Purpose|Source|

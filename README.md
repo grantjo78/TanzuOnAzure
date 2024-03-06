@@ -12,7 +12,7 @@ I will be covering the below:
 
 [Prerequisites](1.0 Prerequisites/README.md)
 [Preparing the Bootstrap virtual machine](2.0 Bootstrap Virtual Machine/README.md)
-[Deploying the Management cluster]
-[Deployng the Workload cluster]
-[Troubleshooting]
+[Deploying the Management cluster](3.0 Management Cluster/README.md)
+[Deployng the Workload cluster](4.0 Workload Cluster/README.md)
+[Troubleshooting](5.0 Troubleshooting)
 

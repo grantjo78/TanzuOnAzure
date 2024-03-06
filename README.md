@@ -2,10 +2,9 @@
 
 The article will document the journey I went through deploying a VMware Tanzu Kubernetes Grid (TKG) onto Azure.
 
-My objective was to:
-- [x] Deploy an Azure Standalone Tanzu Kubernetes Grid Management Cluster
-- [x] Append a Workload Cluster to the environment
-- [x] Ensure that the cluster API are only accessible from within the vNet
+I will be covering the below:
+- [x] Deploying a Private Standalone Tanzu Kubernetes Grid Management Cluster onto Azure
+- [x] Adding a Private Workload Cluster to the environment
 
 To restrict the cluster API to within the vNet, the  TKG clusters need to be deployed as Private Clusters. By default, Azure management and workload clusters are public. They can be configure to be private, which means their API server uses an Azure internal load balancer (ILB) and is therefore only accessible from within the cluster’s own VNet or peered VNets
 

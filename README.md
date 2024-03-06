@@ -1,20 +1,20 @@
 # Overview
 
-The article will document the journey I went through deploying a VMware Tanzu Kubernetes Grid (TKG) onto Azure.
-
-I will be covering the below:
-- [x] Deploying a Private Standalone Tanzu Kubernetes Grid Management Cluster onto Azure
-- [x] Adding a Private Workload Cluster to the environment
-
-To restrict the cluster API to within the vNet, the  TKG clusters need to be deployed as Private Clusters. By default, Azure management and workload clusters are public. They can be configure to be private, which means their API server uses an Azure internal load balancer (ILB) and is therefore only accessible from within the cluster’s own VNet or peered VNets
+The article will document the journey I went through deploying a Private VMware Tanzu Kubernetes Grid (TKG) onto Azure.
 
 *[Tanzu Kubernetes Grid v2.4.x is the last version of TKG that supports the creation of TKG management and workload clusters on Azure. The ability to create TKG workload clusters on Azure will be removed in the Tanzu Kubernetes Grid v2.5 release.](https://docs.vmware.com/en/VMware-Tanzu-Kubernetes-Grid/2.4/tkg-deploy-mc/mgmt-release-notes.html)*
+
+I will be covering the below:
+- [x] Deploying a private standalone TKG Management cluster onto Azure
+- [x] Adding a private Workload cluster to the environment
+
+*By default, Azure management and workload clusters are public. They can be configure to be private, which means their API server utilises an Azure internal load balancer (ILB) and is therefore only accessible from within the cluster’s own VNet or peered VNets*
 
 # Pre-Deployment Prerequisites
 
 Prior to deploying the bootstramp virtual machine and TKG clusters, there are several prerequisites that need to be addressed:
 - Creation of Service Principal
-- Virtual Network Configuration
+- Virtual Network Configurations
   - Subnets
   - Network Security Groups
 - Internet Egress Requirements
@@ -23,15 +23,24 @@ Prior to deploying the bootstramp virtual machine and TKG clusters, there are se
   
 ## Virtual Network Configuration
 
-
+The section will cover configuration required at the Azure networking level.
 
 ### Subnet Configuration
 
+For my implementation of TKG on Azure I created 3 subnets:
+- Bootstrap Subnet - This subnet is where I deployed the virtual machine that I utilised for the deployment of the Management cluster and various operartional tasks.
+- Control Subnet - This subnet is where I deployed the the Management cluster
+- Workload Subnet - This subnet is where I deployed the Workload cluster.
+
 ### Network Security Groups
 
-TKG on Azure requires two Network Security Groups (NSGs) to be defined on their VNet and in their VNet resource group:
+TKG on Azure requires two Network Security Groups (NSGs) to be defined for the VNet which need to **exist within the VNet resource group**:
 - An NSG named CLUSTER-NAME-controlplane-nsg and associated with the cluster’s control plane (Management) subnet
 - An NSG named CLUSTER-NAME-node-nsg and associated with the cluster’s worker node (Workload) subnet
+
+*e.g. if the Management cluster was named *tkg01-mgmt* the NSGs would need to be called:*
+- *tkg01-mgmt-controlplane-nsg*
+- *tkg01-mgmt-node-nsg*
 
 *Giving NSGs names that do not follow the format above may prevent deployment*
 
@@ -61,7 +70,7 @@ https://docs.vmware.com/en/VMware-Tanzu-Kubernetes-Grid/2.4/tkg-deploy-mc/mgmt-r
 
 ## Internet Egress Requirements
 
-If you are utilising a firewall or proxy solution that requires URLs to explicitly Allowed through for internet egress, the below tables documents what I was able to capture.
+If you are utilising a firewall or proxy solution that requires URLs to explicitly allowed through for internet egress, the below tables documents what I was able to capture.
 
 ### Azure
 |URL|Ports|Purpose|Source|
@@ -129,9 +138,15 @@ https://docs.vmware.com/en/VMware-Tanzu-Kubernetes-Grid/2.4/tkg-deploy-mc/mgmt-r
 
 https://kind.sigs.k8s.io/docs/user/quick-start/
 
-# Deployment
+# Deployment of Management Cluster
+
+This section will cover the deployment of the TKG Management cluster.
 
 ## Bootstrap Machine Preparation
+
+- Installation of Azure Cli
+- Installation of Tanzu Cli
+- Installation 
 
 ### Azure Cli
 

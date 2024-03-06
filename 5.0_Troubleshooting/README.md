@@ -19,3 +19,6 @@ In the below explain, we can see that this deployment is failing because there i
 ![image](img/AzureActivityLog-PolicyIssue.png)
 
 ## Issues
+
+### I01: Edition not found
+

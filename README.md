@@ -10,8 +10,8 @@ I will be covering the below:
 
 *By default, Azure management and workload clusters are public. They can be configure to be private, which means their API server utilises an Azure internal load balancer (ILB) and is therefore only accessible from within the cluster’s own VNet or peered VNets*
 
-[Prerequisites]
-[Preparing the Bootstrap virtual machine]
+[Prerequisites](1.0 Prerequisites/README.md)
+[Preparing the Bootstrap virtual machine]()
 [Deploying the Management cluster]
 [Deployng the Workload cluster]
 [Troubleshooting]

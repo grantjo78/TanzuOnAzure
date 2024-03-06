@@ -32,3 +32,5 @@ When executing the `tanzu management-cluster create` you receive the following e
 ![image](img/ErrorEditionNotFound.png)
 
 This error is because Tanzu Cli 1.2.0 (or later) has been installed. TKG on Azure only supports Tanzu Cli 1.0.0 and 1.1.0.
+
+![image](../2.0_Bootstrap_Virtual_Machines/img/TanzuCliMatrix.png)

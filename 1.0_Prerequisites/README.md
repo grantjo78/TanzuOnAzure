@@ -2,10 +2,10 @@
 
 Prior to deploying the bootstramp virtual machine and TKG clusters, there are several prerequisites that need to be addressed:
 - [Creation of Service Principal](#creation-of-service-principal)
-- Virtual Network Configurations
-  - Subnets
-  - Network Security Groups
-- Internet Egress Requirements
+- [Virtual Network Configurations](#virtual-network-configuration)
+  - [Subnets](#subnets)
+  - [Network Security Groups](#network-security-groups)
+- [Internet Egress Requirements](#internet-egress-requirements)
 
 ## Creation of Service Principal
   

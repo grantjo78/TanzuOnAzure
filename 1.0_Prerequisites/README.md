@@ -44,6 +44,7 @@ TKG on Azure requires two Network Security Groups (NSGs) to be defined for the V
 |Inbound|*|Bootstrap Subnet|22|TCP|
 |Outbound|Bootstrap Subnet|Management Subnet<br>Workload Subnet|22|TCP|
 |Outbound|Bootstrap Subnet|Management Subnet<br>Workload Subnet|6443|TCP|
+|Outbound|Bootstrap Subnet|Internet|80<br>443|TCP|
 
 #### Management Subnet NSG (CLUSTER-NAME-controlplane-nsg) 
 |Direction|Source|Destination|Port|Protocol|
@@ -52,6 +53,7 @@ TKG on Azure requires two Network Security Groups (NSGs) to be defined for the V
 |Inbound|Bootstrap Subnet|Management Subnet|6443|TCP|
 |Outbound|Management Subnet|Workload Subnet|22|TCP|
 |Outbound|Management Subnet|Workload Subnet|6443|TCP|
+
 
 #### Workload Subnet NSG (CLUSTER-NAME-node-nsg)
 |Direction|Source|Destination|Port|Protocol|

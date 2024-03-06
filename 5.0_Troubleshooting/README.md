@@ -4,7 +4,7 @@
   - [TKG Deployment Logs](#tkg-deployment-logs)
   - [Azure Activty Logs](#azure-activity-logs)
 - [Issues](#issues)
-- 
+  - [I01: Error: edition not found](#i01-error-edition-not-found0
 
 ## Logs
 [TKG Deployment Logs](#tkg-deployment-logs)<br>
@@ -27,6 +27,7 @@ In the below explain, we can see that this deployment is failing because there i
 ## Issues
 
 ### I01: Error: edition not found
+When executing the *tanzu management-cluster create* 
 
 ![image](img/ErrorEditionNotFound.png)
 

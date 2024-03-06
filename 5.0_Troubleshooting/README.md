@@ -9,4 +9,4 @@
 
 The Azure activity logs on the resource group where the management and workload groups are being deployed to can provide useful information as to why deployment my be failing.
 
-[image](5.0_Troubleshooting/img/AzureActivityLog-PolicyIssue.png)
+![image](5.0_Troubleshooting/img/AzureActivityLog-PolicyIssue.png)

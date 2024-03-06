@@ -28,7 +28,7 @@ For my implementation of TKG on Azure I created 3 subnets:
 
 ### Network Security Groups
 
-TKG on Azure requires two Network Security Groups (NSGs) to be defined for the VNet. These NSGs need to **exist within the VNet resource group**.
+TKG on Azure requires two Network Security Groups (NSGs) to be defined for the VNet. 
 - An NSG named *CLUSTER-NAME-controlplane-nsg* and associated with the cluster’s control plane (Management) subnet
 - An NSG named *CLUSTER-NAME-node-nsg* and associated with the cluster’s worker node (Workload) subnet
 
@@ -36,7 +36,15 @@ TKG on Azure requires two Network Security Groups (NSGs) to be defined for the V
 - *tkg01-mgmt-controlplane-nsg*
 - *tkg01-mgmt-node-nsg*
 
-*Giving NSGs names that do not follow the format above may prevent deployment or cause issues*
+>[!Important]
+Creating NSGs names that do not follow the format above may cause deployment issues.
+  
+>[!Important]
+The NSGs need to exist within the same resource group as the VNet.
+
+
+
+
 
 #### Bootstrap Subnet NSG
 |Direction|Source|Destination|Port|Protocol|

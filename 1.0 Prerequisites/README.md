@@ -5,20 +5,20 @@ Prior to deploying the bootstramp virtual machine and TKG clusters, there are se
   - Network Security Groups
 - Internet Egress Requirements
 
-## Creation of Service Principal
+# Creation of Service Principal
   
-## Virtual Network Configuration
+# Virtual Network Configuration
 
 The section will cover configuration required at the Azure networking level.
 
-### Subnet Configuration
+## Subnet Configuration
 
 For my implementation of TKG on Azure I created 3 subnets:
 - Bootstrap Subnet - This subnet is where I deployed the virtual machine that I utilised for the deployment of the Management cluster and various operartional tasks.
 - Control Subnet - This subnet is where I deployed the the Management cluster
 - Workload Subnet - This subnet is where I deployed the Workload cluster.
 
-### Network Security Groups
+## Network Security Groups
 
 TKG on Azure requires two Network Security Groups (NSGs) to be defined for the VNet which need to **exist within the VNet resource group**:
 - An NSG named CLUSTER-NAME-controlplane-nsg and associated with the cluster’s control plane (Management) subnet
@@ -30,13 +30,13 @@ TKG on Azure requires two Network Security Groups (NSGs) to be defined for the V
 
 *Giving NSGs names that do not follow the format above may prevent deployment*
 
-#### Bootstrap Subnet Network Security Group
+### Bootstrap Subnet Network Security Group
 |Direction|Source|Destination|Port|Protocol|
 |-----|-----|-----|-----|-----|
 |Outbound|Bootstrap Subnet|Management Subnet<br>Workload Subnet|22|TCP|
 |Outbound|Bootstrap Subnet|Management Subnet<br>Workload Subnet|6443|TCP|
 
-#### Management Subnet Network Security Group
+### Management Subnet Network Security Group
 |Direction|Source|Destination|Port|Protocol|
 |-----|-----|-----|-----|-----|
 |Inbound|Bootstrap Subnet|Management Subnet|22|TCP|
@@ -44,7 +44,7 @@ TKG on Azure requires two Network Security Groups (NSGs) to be defined for the V
 |Outbound|Management Subnet|Workload Subnet|22|TCP|
 |Outbound|Management Subnet|Workload Subnet|6443|TCP|
 
-#### Workload Subnet Network Security Group
+### Workload Subnet Network Security Group
 |Direction|Source|Destination|Port|Protocol|
 |-----|-----|-----|-----|-----|
 |Inbound|Bootstrap Subnet|Workload Subnet|22|TCP|
@@ -54,11 +54,11 @@ TKG on Azure requires two Network Security Groups (NSGs) to be defined for the V
 
 https://docs.vmware.com/en/VMware-Tanzu-Kubernetes-Grid/2.4/tkg-deploy-mc/mgmt-reqs-prep-azure.html
 
-## Internet Egress Requirements
+# Internet Egress Requirements
 
 If you are utilising a firewall or proxy solution that requires URLs to explicitly allowed through for internet egress, the below tables documents what I was able to capture.
 
-### Azure
+## Azure
 |URL|Ports|Purpose|Source|
 |-----|-----|-----|-----|
 |login.microsoftonline.com|443|Azure portal authentication|Bootstrap machine|
@@ -82,7 +82,7 @@ If you are utilising a firewall or proxy solution that requires URLs to explicit
 https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-safelist-urls?tabs=public-cloud
 
 
-### Docker 
+## Docker 
 |URL|Port|Purpose|Source|
 |-----|-----|-----|-----|
 |download.docker.com|443|Requires for the installation of Docker Engine|Bootstrap machine|
@@ -104,7 +104,7 @@ https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-safelist-urls?
 
 [https://docs.docker.com/engine/install/ubuntu/](https://docs.docker.com/desktop/allow-list/)
 
-### VMware 
+## VMware 
 |Description|URL|Source|
 |-----|-----|-----|
 |projects.registry.vmware.com|VMware plugins registry hosts images, binaries and configuration files used by the Tanzu CLI to perform core functions like creating clusters and managing access. Tanzu Standard package repository stores images for packaged services that the Tanzu CLI installs into clusters.| Bootstrap machine|
@@ -112,7 +112,7 @@ https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-safelist-urls?
 
 https://docs.vmware.com/en/VMware-Tanzu-Kubernetes-Grid/2.4/tkg-deploy-mc/mgmt-reqs-proxy-allowlist.html
 
-### Kind
+## Kind
 
 *Optional if you would like to install Kind to view the clusters*
 

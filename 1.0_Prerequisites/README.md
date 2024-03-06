@@ -6,6 +6,10 @@ Prior to deploying the bootstramp virtual machine and TKG clusters, there are se
   - [Subnets](#subnets)
   - [Network Security Groups](#network-security-groups)
 - [Internet Egress Requirements](#internet-egress-requirements)
+  - [Azure Portal URLs](#azure-portal-urls)
+  - [Docker Desktop URLs](#docker-desktop-urls)
+  - [VMware URLs](#vmware-urls)
+  - [Kind URLs](#kind-urls)
 
 ## Creation of Service Principal
   
@@ -32,13 +36,13 @@ TKG on Azure requires two Network Security Groups (NSGs) to be defined for the V
 
 *Giving NSGs names that do not follow the format above may prevent deployment*
 
-### Bootstrap Subnet Network Security Group
+#### Bootstrap Subnet Network Security Group
 |Direction|Source|Destination|Port|Protocol|
 |-----|-----|-----|-----|-----|
 |Outbound|Bootstrap Subnet|Management Subnet<br>Workload Subnet|22|TCP|
 |Outbound|Bootstrap Subnet|Management Subnet<br>Workload Subnet|6443|TCP|
 
-### Management Subnet Network Security Group
+#### Management Subnet Network Security Group
 |Direction|Source|Destination|Port|Protocol|
 |-----|-----|-----|-----|-----|
 |Inbound|Bootstrap Subnet|Management Subnet|22|TCP|
@@ -46,7 +50,7 @@ TKG on Azure requires two Network Security Groups (NSGs) to be defined for the V
 |Outbound|Management Subnet|Workload Subnet|22|TCP|
 |Outbound|Management Subnet|Workload Subnet|6443|TCP|
 
-### Workload Subnet Network Security Group
+#### Workload Subnet Network Security Group
 |Direction|Source|Destination|Port|Protocol|
 |-----|-----|-----|-----|-----|
 |Inbound|Bootstrap Subnet|Workload Subnet|22|TCP|
@@ -56,11 +60,11 @@ TKG on Azure requires two Network Security Groups (NSGs) to be defined for the V
 
 https://docs.vmware.com/en/VMware-Tanzu-Kubernetes-Grid/2.4/tkg-deploy-mc/mgmt-reqs-prep-azure.html
 
-# Internet Egress Requirements
+## Internet Egress Requirements
 
 If you are utilising a firewall or proxy solution that requires URLs to explicitly allowed through for internet egress, the below tables documents what I was able to capture.
 
-## Azure
+### Azure Portal URLs
 |URL|Ports|Purpose|Source|
 |-----|-----|-----|-----|
 |login.microsoftonline.com|443|Azure portal authentication|Bootstrap machine|
@@ -84,7 +88,7 @@ If you are utilising a firewall or proxy solution that requires URLs to explicit
 https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-safelist-urls?tabs=public-cloud
 
 
-## Docker 
+### Docker Desktop URLs
 |URL|Port|Purpose|Source|
 |-----|-----|-----|-----|
 |download.docker.com|443|Requires for the installation of Docker Engine|Bootstrap machine|
@@ -106,7 +110,7 @@ https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-safelist-urls?
 
 [https://docs.docker.com/engine/install/ubuntu/](https://docs.docker.com/desktop/allow-list/)
 
-## VMware 
+### VMware URLs
 |Description|URL|Source|
 |-----|-----|-----|
 |projects.registry.vmware.com|VMware plugins registry hosts images, binaries and configuration files used by the Tanzu CLI to perform core functions like creating clusters and managing access. Tanzu Standard package repository stores images for packaged services that the Tanzu CLI installs into clusters.| Bootstrap machine|
@@ -114,7 +118,7 @@ https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-safelist-urls?
 
 https://docs.vmware.com/en/VMware-Tanzu-Kubernetes-Grid/2.4/tkg-deploy-mc/mgmt-reqs-proxy-allowlist.html
 
-## Kind
+### Kind URLs
 
 *Optional if you would like to install Kind to view the clusters*
 

@@ -1,5 +1,11 @@
 # Troubleshooting and Issues
 
+- [Logs](#logs)
+  - [TKG Deployment Logs](#tkg-deployment-logs)
+  - [Azure Activty Logs](#azure-activity-logs)
+- [Issues](#issues)
+- 
+
 ## Logs
 [TKG Deployment Logs](#tkg-deployment-logs)<br>
 [Azure Activty Logs](#azure-activity-logs)
@@ -20,5 +26,7 @@ In the below explain, we can see that this deployment is failing because there i
 
 ## Issues
 
-### I01: Edition not found
+### I01: Error: edition not found
+
+![image](img/ErrorEditionNotFound.png)
 

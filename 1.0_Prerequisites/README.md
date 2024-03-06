@@ -1,26 +1,26 @@
 # Prerequisites
 
 Prior to deploying the bootstramp virtual machine and TKG clusters, there are several prerequisites that need to be addressed:
-- Creation of Service Principal
+- [Creation of Service Principal](#creation-of-service-principal)
 - Virtual Network Configurations
   - Subnets
   - Network Security Groups
 - Internet Egress Requirements
 
-# Creation of Service Principal
+## Creation of Service Principal
   
-# Virtual Network Configuration
+## Virtual Network Configuration
 
 The section will cover configuration required at the Azure networking level.
 
-## Subnet Configuration
+### Subnet Configuration
 
 For my implementation of TKG on Azure I created 3 subnets:
 - Bootstrap Subnet - This subnet is where I deployed the virtual machine that I utilised for the deployment of the Management cluster and various operartional tasks.
 - Control Subnet - This subnet is where I deployed the the Management cluster
 - Workload Subnet - This subnet is where I deployed the Workload cluster.
 
-## Network Security Groups
+### Network Security Groups
 
 TKG on Azure requires two Network Security Groups (NSGs) to be defined for the VNet which need to **exist within the VNet resource group**:
 - An NSG named CLUSTER-NAME-controlplane-nsg and associated with the cluster’s control plane (Management) subnet

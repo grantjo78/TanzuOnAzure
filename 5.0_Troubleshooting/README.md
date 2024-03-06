@@ -27,7 +27,8 @@ In the below explain, we can see that this deployment is failing because there i
 ## Issues
 
 ### I01: Error: edition not found
-When executing the *tanzu management-cluster create* 
+When executing the `tanzu management-cluster create` you receive the following error message `Error: edition not found'
 
 ![image](img/ErrorEditionNotFound.png)
 
+This error is because Tanzu Cli 1.2.0 (or later) has been installed. TKG on Azure only supports Tanzu Cli 1.0.0 and 1.1.0.

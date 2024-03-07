@@ -103,7 +103,8 @@ The section documents URLs to allow through a firewall or proxy solution if URLs
 |*.graph.microsoft.com|443|Azure portal framework|Bootstrap machine|
 |azure.archive.ubuntu.com|80, 443|Updating Ubuntu|Bootstrap machine |
 
-https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-safelist-urls?tabs=public-cloud
+References
+- https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-safelist-urls?tabs=public-cloud
 
 
 ### Docker Desktop URLs
@@ -134,7 +135,8 @@ https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-safelist-urls?
 |projects.registry.vmware.com|VMware plugins registry hosts images, binaries and configuration files used by the Tanzu CLI to perform core functions like creating clusters and managing access. Tanzu Standard package repository stores images for packaged services that the Tanzu CLI installs into clusters.| Bootstrap machine|
 |registry.tkg.vmware.run|Uses Harbor to host images that TKG uses to bootstrap management and workload clusters. Images in this registry are scanned for vulnerabilities and are safe to operate in all environments|Bootstrap machine|
 
-https://docs.vmware.com/en/VMware-Tanzu-Kubernetes-Grid/2.4/tkg-deploy-mc/mgmt-reqs-proxy-allowlist.html
+References
+- https://docs.vmware.com/en/VMware-Tanzu-Kubernetes-Grid/2.4/tkg-deploy-mc/mgmt-reqs-proxy-allowlist.html
 
 ### Kind URLs
 
@@ -146,4 +148,5 @@ https://docs.vmware.com/en/VMware-Tanzu-Kubernetes-Grid/2.4/tkg-deploy-mc/mgmt-r
 |github.com||Bootstrap machine|
 |objects.githubusercontent.com||Bootstrap machine|
 
-https://kind.sigs.k8s.io/docs/user/quick-start/
+References
+- https://kind.sigs.k8s.io/docs/user/quick-start/

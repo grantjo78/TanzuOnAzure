@@ -2,8 +2,11 @@ The bootstrap virtual machine that I utilised for the deploy of the TKG cluster 
 
 - Installation of Azure Cli
 - Installation of Docker Engine
-- Installation of Tanzu Cli
+- Installation of Tanzu ClL
 - Installation of Tanzu CLI Plugins for TKG v2.4
+- Installation of Kubernetes CLI
+
+
 
 # Installation of Azure Cli
 
@@ -78,18 +81,18 @@ References<br>
 - https://docs.docker.com/engine/install/ubuntu/
 - https://docs.docker.com/engine/install/linux-postinstall/
 
-# Installation of Tanzu Cli
+# Installation of Tanzu CLI
 
-As per the Tanzu Cli [Product Interoperability Matrix](https://interopmatrix.vmware.com/Interoperability?col=1772,&row=0,) only Tanzu Cli **1.0.0** and **1.1.0** are supported for TKG **2.4.1**.
+As per the Tanzu CLI [Product Interoperability Matrix](https://interopmatrix.vmware.com/Interoperability?col=1772,&row=0,) only Tanzu CLI **1.0.0** and **1.1.0** are supported for TKG **2.4.1**.
 
 ![image](img/TanzuCliMatrix.png)
 
-If you follow the below instructions, this will install the latest Tanzu Cli (1.2.0) which may cause issues.
+If you follow the below instructions, this will install the latest Tanzu CLI (1.2.0) which may cause issues.
 
 ![image](img/TanzuCli-LatestVersion.png)
 
 
-To install Tanzu Cli 1.1.0 run the following commands.
+To install Tanzu CLI 1.1.0 run the following commands.
 
 ```
 sudo apt update
@@ -102,7 +105,7 @@ sudo apt install -y tanzu-cli=1.1.0
 ```
 ![image](img/TanzuCliInstall.png)
 
-To validate that the correct version of the Tanzu Cli has been installed, execute the following command.
+To validate that the correct version of the Tanzu CLI has been installed, execute the following command.
 ```
 tanzu version
 ```
@@ -120,3 +123,27 @@ To validate the plugin list, execute the following command.
 tanzu plugin list
 ```
 ![image](img/TanzuPluginList.png)
+
+## Installation of Kubernetes CLI
+
+Step 1: Download kubectl from VMware Product Downloads
+
+Browse to Tanzu Kubernetes Grid v2.4.1 Product Downloads and download the `kubectl-linux-v1.27.5+vmware.1.gz` file.
+
+
+
+Once downloaded, tranfer the file to the bootstrap virtual machine
+
+Step 2: Unpack kubectl binary
+
+```
+gunzip kubectl-linux-v1.27.5+vmware.1.gz
+```
+
+Step 3: CLI available to the system
+
+```
+chmod ugo+x kubectl-linux-v1.27.5+vmware.1
+sudo install kubectl-linux-v1.27.5+vmware.1 /usr/local/bin/kubectl
+kubectl version
+```

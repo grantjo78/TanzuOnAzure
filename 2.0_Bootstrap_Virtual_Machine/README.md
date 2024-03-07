@@ -130,9 +130,9 @@ tanzu plugin list
 ```
 ![image](img/TanzuPluginList.png)
 
-## Installation of Kubernetes CLI
+# Installation of Kubernetes CLI
 
-Step 1: Download kubectl from VMware Product Downloads
+## Step 1: Download kubectl from VMware Product Downloads
 
 Browse to Tanzu Kubernetes Grid v2.4.1 Product Downloads and download the `kubectl-linux-v1.27.5+vmware.1.gz` file.
 
@@ -142,14 +142,14 @@ Once downloaded, tranfer the file to the bootstrap virtual machine
 
 ![image](img/kubectlgz.png)
 
-Step 2: Unpack kubectl binary
+## Step 2: Unpack kubectl binary
 
 ```
 gunzip kubectl-linux-v1.27.5+vmware.1.gz
 ```
 ![image](img/kubectl-gunzip.png)
 
-Step 3: CLI available to the system
+## Step 3: CLI available to the system
 
 ```
 chmod ugo+x kubectl-linux-v1.27.5+vmware.1

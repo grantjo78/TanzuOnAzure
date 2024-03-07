@@ -1,5 +1,3 @@
-# Bootstrap Virtual Machine
-
 The bootstrap virtual machine that I utilised for the deploy of the TKG cluster was the market place Ubuntu 22.04 LTS image. Once deployed I performed the following steps to prepare the virtual machine for the TKG deployment.
 
 - Installation of Azure Cli
@@ -7,7 +5,7 @@ The bootstrap virtual machine that I utilised for the deploy of the TKG cluster 
 - Installation of Tanzu Cli
 - Installation of Tanzu CLI Plugins for TKG v2.4
 
-## Installation of Azure Cli
+# Installation of Azure Cli
 
 To install the Azure Cli onto the bootstrap virtual machine, execute the following command.
 
@@ -21,7 +19,7 @@ curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 References<br>
 - https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt
 
-## Installation of Docker Engine
+# Installation of Docker Engine
 
 Step 1: Add Docker's official GPG key
 ```
@@ -80,7 +78,7 @@ References<br>
 - https://docs.docker.com/engine/install/ubuntu/
 - https://docs.docker.com/engine/install/linux-postinstall/
 
-## Installation of Tanzu Cli
+# Installation of Tanzu Cli
 
 As per the Tanzu Cli [Product Interoperability Matrix](https://interopmatrix.vmware.com/Interoperability?col=1772,&row=0,) only Tanzu Cli **1.0.0** and **1.1.0** are supported for TKG **2.4.1**.
 
@@ -110,7 +108,7 @@ tanzu version
 ```
 ![image](img/TanzuCliVersion.png)
 
-## Installation of Tanzu CLI Plugins for TKG v2.4
+# Installation of Tanzu CLI Plugins for TKG v2.4
 
 ```
 tanzu plugin install --group vmware-tkg/default:v2.4.1

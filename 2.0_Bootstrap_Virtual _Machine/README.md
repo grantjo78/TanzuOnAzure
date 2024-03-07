@@ -74,9 +74,11 @@ To validate that Docker can be run with the current user, execute the following 
 ```
 docker ps
 ```
+![image](img/Docker-S7.png)
+
 References<br>
-https://docs.docker.com/engine/install/ubuntu/
-https://docs.docker.com/engine/install/linux-postinstall/
+- https://docs.docker.com/engine/install/ubuntu/
+- https://docs.docker.com/engine/install/linux-postinstall/
 
 ## Installation of Tanzu Cli
 

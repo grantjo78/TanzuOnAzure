@@ -5,7 +5,7 @@ The bootstrap virtual machine that I utilised for the deploy of the TKG cluster 
 - Installation of Azure Cli
 - Installation of Docker Engine
 - Installation of Tanzu Cli
-- Installation 
+- Installation of Tanzu CLI Plugins for TKG v2.4
 
 ## Installation of Azure Cli
 
@@ -109,3 +109,15 @@ To validate that the correct version of the Tanzu Cli has been installed, execut
 tanzu version
 ```
 ![image](img/TanzuCliVersion.png)
+
+## Installation of Tanzu CLI Plugins for TKG v2.4
+
+```
+tanzu plugin install --group vmware-tkg/default:v2.4.1
+```
+
+To validate the plugin list, execute the following command.
+```
+tanzu plugin list
+```
+

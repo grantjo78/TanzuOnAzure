@@ -9,12 +9,17 @@ The bootstrap virtual machine that I utilised for the deploy of the TKG cluster 
 
 ## Installation of Azure Cli
 
+To install the Azure Cli onto the bootstrap virtual machine, execute the following command.
+
 ```
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 ```
 
+![image](img/AZCliInstall.png)
+
+
 References<br>
-https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt
+- https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt
 
 ## Installation of Docker Engine
 

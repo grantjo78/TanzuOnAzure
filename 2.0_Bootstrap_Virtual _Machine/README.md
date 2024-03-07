@@ -102,3 +102,10 @@ echo "deb [signed-by=/etc/apt/keyrings/tanzu-archive-keyring.gpg] https://storag
 sudo apt update
 sudo apt install -y tanzu-cli=1.1.0
 ```
+![image](img/TanzuCliInstall.png)
+
+To validate that the correct version of the Tanzu Cli has been installed, execute the following command.
+```
+tanzu version
+```
+![image](img/TanzuCliVersion.png)

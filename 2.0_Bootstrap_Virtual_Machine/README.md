@@ -1,14 +1,14 @@
 The bootstrap virtual machine that I utilised for the deploy of the TKG cluster was the market place Ubuntu 22.04 LTS image. Once deployed I performed the following steps to prepare the virtual machine for the TKG deployment.
 
-- Installation of Azure Cli
+- Installation of Azure CLI
 - Installation of Docker Engine
-- Installation of Tanzu ClL
+- Installation of Tanzu CLI
 - Installation of Tanzu CLI Plugins for TKG v2.4
 - Installation of Kubernetes CLI
 
 
 
-# Installation of Azure Cli
+# Installation of Azure CLI
 
 To install the Azure Cli onto the bootstrap virtual machine, execute the following command.
 
@@ -24,7 +24,7 @@ References<br>
 
 # Installation of Docker Engine
 
-Step 1: Add Docker's official GPG key
+## Step 1: Add Docker's official GPG key
 ```
 sudo apt-get update
 sudo apt-get install ca-certificates curl
@@ -34,7 +34,7 @@ sudo chmod a+r /etc/apt/keyrings/docker.asc
 ```
 ![image](img/Docker-S1.png)
 
-Step 2: Add the Docker repository to Apt sources
+## Step 2: Add the Docker repository to Apt sources
 ```
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
@@ -44,33 +44,33 @@ sudo apt-get update
 ```
 ![image](img/Docker-S2.png)
 
-Step 3: Install latest Docker packages
+## Step 3: Install latest Docker packages
 
 ```
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 ![image](img/Docker-S3.png)
 
-Step 4: Create Docker group (should already exist)
+## Step 4: Create Docker group (should already exist)
 ```
 sudo groupadd docker
 ```
 ![image](img/Docker-S4.png)
 
-Step 5: Add current user to Docker group
+## Step 5: Add current user to Docker group
 ```
 sudo usermod -aG docker $USER
 ```
 
 ![image](img/Docker-S5.png)
 
-Step 6: Activate changes to the group
+## Step 6: Activate changes to the group
 ```
 newgrp docker
 ```
 ![image](img/Docker-S6.png)
 
-Step 7: Run Docker PS
+## Step 7: Run Docker PS
 To validate that Docker can be run with the current user, execute the following command.
 ```
 docker ps
@@ -87,11 +87,12 @@ As per the Tanzu CLI [Product Interoperability Matrix](https://interopmatrix.vmw
 
 ![image](img/TanzuCliMatrix.png)
 
-If you follow the below instructions, this will install the latest Tanzu CLI (1.2.0) which may cause issues.
+> ![WARNING]
+>If you follow the below instructions, this will install the latest Tanzu CLI (1.2.0) which may cause issues.
 
 ![image](img/TanzuCli-LatestVersion.png)
 
-
+## Step 1: Install Tanzu CLI
 To install Tanzu CLI 1.1.0 run the following commands.
 
 ```
@@ -105,6 +106,7 @@ sudo apt install -y tanzu-cli=1.1.0
 ```
 ![image](img/TanzuCliInstall.png)
 
+## Step 2: Validate version
 To validate that the correct version of the Tanzu CLI has been installed, execute the following command.
 ```
 tanzu version
@@ -113,11 +115,13 @@ tanzu version
 
 # Installation of Tanzu CLI Plugins for TKG v2.4
 
+## Step 1:
 ```
 tanzu plugin install --group vmware-tkg/default:v2.4.1
 ```
 ![image](img/TanzuCliPlugin.png)
 
+## Step 2:
 To validate the plugin list, execute the following command.
 ```
 tanzu plugin list
@@ -130,18 +134,18 @@ Step 1: Download kubectl from VMware Product Downloads
 
 Browse to Tanzu Kubernetes Grid v2.4.1 Product Downloads and download the `kubectl-linux-v1.27.5+vmware.1.gz` file.
 
-![image](img/VMwareKubeCtl.png]
+![image](img/VMwareKubeCtl.png)
 
 Once downloaded, tranfer the file to the bootstrap virtual machine
 
-![image](img/kubectlgz.png]
+![image](img/kubectlgz.png)
 
 Step 2: Unpack kubectl binary
 
 ```
 gunzip kubectl-linux-v1.27.5+vmware.1.gz
 ```
-![image](img/kubectl-gunzip.png]
+![image](img/kubectl-gunzip.png)
 
 Step 3: CLI available to the system
 
@@ -150,4 +154,4 @@ chmod ugo+x kubectl-linux-v1.27.5+vmware.1
 sudo install kubectl-linux-v1.27.5+vmware.1 /usr/local/bin/kubectl
 kubectl version
 ```
-![image](img/kubectlinstall.png]
+![image](img/kubectlinstall.png)

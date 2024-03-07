@@ -115,7 +115,7 @@ tanzu version
 ```
 tanzu plugin install --group vmware-tkg/default:v2.4.1
 ```
-![image](img/TanzuPluginsInstall.png)
+![image](img/TanzuCliPlugin.png)
 
 To validate the plugin list, execute the following command.
 ```

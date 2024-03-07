@@ -87,10 +87,12 @@ As per the Tanzu CLI [Product Interoperability Matrix](https://interopmatrix.vmw
 
 ![image](img/TanzuCliMatrix.png)
 
-> ![WARNING]
+>[!WARNING]
 >If you follow the below instructions, this will install the latest Tanzu CLI (1.2.0) which may cause issues.
 
 ![image](img/TanzuCli-LatestVersion.png)
+
+Follow the below steps to install the supported Tanzu CLI version.
 
 ## Step 1: Install Tanzu CLI
 To install Tanzu CLI 1.1.0 run the following commands.

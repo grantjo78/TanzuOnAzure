@@ -1,5 +1,3 @@
-# Prerequisites
-
 Prior to deploying the bootstramp virtual machine and TKG clusters, there are several prerequisites that need to be addressed:
 - [Creation of Service Principal](#creation-of-service-principal)
 - [Virtual Network Configurations](#virtual-network-configuration)
@@ -11,22 +9,22 @@ Prior to deploying the bootstramp virtual machine and TKG clusters, there are se
   - [VMware URLs](#vmware-urls)
   - [Kind URLs](#kind-urls)
 
-## Creation of Service Principal
+# Creation of Service Principal
   
-## Virtual Network Configuration
+# Virtual Network Configuration
 
 The section will cover the following Azure networking requirements.
 - [Subnets](#subnets)
 - [Network Security Groups](#network-security-groups)
 
-### Subnets
+## Subnets
 
 For my implementation of TKG on Azure I created 3 subnets:
 - Bootstrap Subnet - This subnet is where I deployed the virtual machine that I utilised for the deployment of the Management cluster and various operartional tasks.
 - Control Subnet - This subnet is where I deployed the the Management cluster
 - Workload Subnet - This subnet is where I deployed the Workload cluster.
 
-### Network Security Groups
+## Network Security Groups
 
 TKG on Azure requires two Network Security Groups (NSGs) to be defined for the VNet. 
 - An NSG named *CLUSTER-NAME-controlplane-nsg* and associated with the cluster’s control plane (Management) subnet
@@ -42,11 +40,7 @@ Creating NSGs names that do not follow the format above may cause deployment iss
 >[!Important]
 The NSGs need to exist within the same resource group as the VNet.
 
-
-
-
-
-#### Bootstrap Subnet NSG
+### Bootstrap Subnet NSG
 |Direction|Source|Destination|Port|Protocol|
 |-----|-----|-----|-----|-----|
 |Inbound|*|Bootstrap Subnet|22|TCP|
@@ -54,7 +48,7 @@ The NSGs need to exist within the same resource group as the VNet.
 |Outbound|Bootstrap Subnet|Management Subnet<br>Workload Subnet|6443|TCP|
 |Outbound|Bootstrap Subnet|Internet|80<br>443|TCP|
 
-#### Management Subnet NSG (CLUSTER-NAME-controlplane-nsg) 
+### Management Subnet NSG (CLUSTER-NAME-controlplane-nsg) 
 |Direction|Source|Destination|Port|Protocol|
 |-----|-----|-----|-----|-----|
 |Inbound|Bootstrap Subnet|Management Subnet|22|TCP|
@@ -63,7 +57,7 @@ The NSGs need to exist within the same resource group as the VNet.
 |Outbound|Management Subnet|Workload Subnet|6443|TCP|
 
 
-#### Workload Subnet NSG (CLUSTER-NAME-node-nsg)
+### Workload Subnet NSG (CLUSTER-NAME-node-nsg)
 |Direction|Source|Destination|Port|Protocol|
 |-----|-----|-----|-----|-----|
 |Inbound|Bootstrap Subnet|Workload Subnet|22|TCP|
@@ -73,7 +67,7 @@ The NSGs need to exist within the same resource group as the VNet.
 
 https://docs.vmware.com/en/VMware-Tanzu-Kubernetes-Grid/2.4/tkg-deploy-mc/mgmt-reqs-prep-azure.html
 
-## Internet Egress Requirements
+# Internet Egress Requirements
 
 The section documents URLs to allow through a firewall or proxy solution if URLs are required to be explictly allowed.  
 
@@ -82,7 +76,7 @@ The section documents URLs to allow through a firewall or proxy solution if URLs
 - [VMware URLs](#vmware-urls)
 - [Kind URLs](#kind-urls)
 
-### Azure Portal URLs
+## Azure Portal URLs
 |URL|Ports|Purpose|Source|
 |-----|-----|-----|-----|
 |login.microsoftonline.com|443|Azure portal authentication|Bootstrap machine|
@@ -107,7 +101,7 @@ References
 - https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-safelist-urls?tabs=public-cloud
 
 
-### Docker Desktop URLs
+## Docker Desktop URLs
 |URL|Port|Purpose|Source|
 |-----|-----|-----|-----|
 |download.docker.com|443|Requires for the installation of Docker Engine|Bootstrap machine|
@@ -129,7 +123,7 @@ References
 
 [https://docs.docker.com/engine/install/ubuntu/](https://docs.docker.com/desktop/allow-list/)
 
-### VMware URLs
+## VMware URLs
 |Description|URL|Source|
 |-----|-----|-----|
 |projects.registry.vmware.com|VMware plugins registry hosts images, binaries and configuration files used by the Tanzu CLI to perform core functions like creating clusters and managing access. Tanzu Standard package repository stores images for packaged services that the Tanzu CLI installs into clusters.| Bootstrap machine|
@@ -138,7 +132,7 @@ References
 References
 - https://docs.vmware.com/en/VMware-Tanzu-Kubernetes-Grid/2.4/tkg-deploy-mc/mgmt-reqs-proxy-allowlist.html
 
-### Kind URLs
+## Kind URLs
 
 *Optional if you would like to install Kind to view the clusters*
 

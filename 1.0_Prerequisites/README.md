@@ -1,8 +1,11 @@
 Prior to deploying the bootstramp virtual machine and TKG clusters, there are several prerequisites that need to be addressed:
 - [Creation of Service Principal](#creation-of-service-principal)
-- [Virtual Network Configurations](#virtual-network-configuration)
+- [Virtual Network Configuration](#virtual-network-configuration)
   - [Subnets](#subnets)
   - [Network Security Groups](#network-security-groups)
+    - [Bootstrap Subnet NSG](#bootstrap-subnet-nsg)
+    - [Management Subnet NSG (CLUSTER-NAME-controlplane-nsg)](#management-subnet-nsg-cluster-name-controlplane-nsg)
+    - [Workload Subnet NSG (CLUSTER-NAME-node-nsg)](#workload-subnet-nsg-cluster-name-node-nsg)
 - [Internet Egress Requirements](#internet-egress-requirements)
   - [Azure Portal URLs](#azure-portal-urls)
   - [Docker Desktop URLs](#docker-desktop-urls)

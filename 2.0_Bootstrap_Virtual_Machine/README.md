@@ -1,4 +1,4 @@
-The bootstrap virtual machine that I utilised for the deploy of the TKG cluster was the market place Ubuntu 22.04 LTS image. Once deployed I performed the following steps to prepare the virtual machine for the TKG deployment.
+The bootstrap virtual machine that I utilised for the deploy of the TKG cluster was the market place Ubuntu 22.04 LTS image. Once deployed, I performed the following steps to prepare the virtual machine for the TKG deployment.
 
 - Installation of Azure CLI
 - Installation of Docker Engine

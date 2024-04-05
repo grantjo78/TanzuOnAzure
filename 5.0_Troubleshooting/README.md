@@ -4,7 +4,7 @@
   - [TKG Deployment Logs](#tkg-deployment-logs)
   - [Azure Activty Logs](#azure-activity-logs)
 - [Issues](#issues)
-  - [I01: Error: edition not found](#i01-error-edition-not-found0
+  - [I01: Error: edition not found](#i01-error-edition-not-found)
 
 ## Logs
 [TKG Deployment Logs](#tkg-deployment-logs)<br>

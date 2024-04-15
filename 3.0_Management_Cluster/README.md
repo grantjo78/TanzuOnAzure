@@ -13,7 +13,18 @@ The configuration file option allows for greater flexibility of configuration an
 
 The settings relevant for the deployment of the management cluster onto Azure are covered below.
 
-`INFRASTRUCTURE_PROVIDER` specifies which platform the management cluster will be deployed onto. This needs to be set to `azure`.
+`CLUSTER_NAME`: Specifies the name to give the cluster.
+`CLUSTER_PLAN`:
+
+```
+CLUSTER_NAME: tkg01-mgmt-dev
+CLUSTER_PLAN: dev
+CLUSTER_ANNOTATIONS: 'description:,location:'
+CLUSTER_CIDR: 100.96.0.0/11
+
+```
+
+`INFRASTRUCTURE_PROVIDER`: specifies which platform the management cluster will be deployed onto. This needs to be set to `azure`.
 
 ```
 INFRASTRUCTURE_PROVIDER: azure
@@ -79,17 +90,16 @@ AZURE_FRONTEND_PRIVATE_IP: 10.243.70.25
 >The public key is required to be Base64 encoded.
 
 ```
-AZURE_SSH_PUBLIC_KEY_B64: c3NoLXJzYSBBQUFBQjNOemFDMXljMkVBQUFBREFRQUJBQUFDQVFDN3Z1eFc2TjZhVzZmNklFU1pXL3VNK0Z3ekhzenFqdmJGTEFmcTFOVUhKR0pHRmJPb21EQm92UktBMnNaRlRKUXk0QnFhN3RuaHNjdDRFUHQxUGQvUFVBSWpEYm9jc2JRbUQrVUdlS2dmYVU0WnNqYXFwS3VDdTh1OHdJWVJWUitoVHJnYW42cHprNGZMT0hQRkxyeSs5QmZ0eUVlV3dMbldwYStjYTkyRlBST2psWUZYNGt6YlgydXhxZGw2RHMwRGl2bVkwdTFNcHUxZFB4SnpBVXhDZnJ5QU0vbnRrOWtDS3RZRGRjalNzMkZTR0s0TWlJYU1PTmNWd3lCNHk1d3dOaUJ0VDB5WGRRQTJFY1RNM2RQRitveFFMMFJDTG5tVC9iZFFjTVEvY2pmRlZUdlBGWHBJZytBOWh5V1Z3ODNFQWcrUHg2bTQ3NmphTTkwZkJzVlhnVTdwNEVkeHRrRFg3bG0xMnBlNnphaUZwNHVUZ0QwNTZJTXJKU2hRakdRZm1XK003WFU4ZmE2VkdHM3JES05BY3pWTHRESXcxZWxCM0IwaklabHQyZHdDWkxselF6c3U1VTlIYlVhekN4bFBIVkdlUXRtL1FYLzZ0SUtmaDdYREwybkplNUtURk1YRXFIWGt0SzhGQnZjYkZuYjhYQjZ4Y2J3eWE0Y3J0ZjNvaHEwd0NHeFV4N2RNazBxVHNnMldCQlgwQzh3djVRWkZROEwwS0MxYzNkRDY4bFF6bm1CeDZIbU9wTWF2Z2p4bFUwM0dnNWw4emtHTzVPUHhYdEUxSUxPQU8wQ1QrWVNtQnhoYTFCbGQzb2tBNXdIdmwwaWFPTFhXbDZjUVBtSzlhekVHZFl0azlnUCtESTBqZldNQ1B5TW92MzJNTU4xcFYzOG9UOXQ2VlE9PSBqb2hhbi5ncmFudEByaW90aW50by5jb20=
+AZURE_SSH_PUBLIC_KEY_B64: c3NoLXJzYSBBQUFBQjNOemFDMXljMkVBQUFBREFRQUJBQUFDQVFDN3Z1eFc2TjZhVzZmNklFU1pXL3VNK0Z3ekhzenFqdmJGTEFmcTFOVUhKR0pHRmJPb21EQm92UktBMnNaRlRKUXk0QnFhN3RuaHNjdDRFUHQxUGQvUFVBSWpEYm9jc2JRbUQrVUdlS2dmYVU0WnNqYXFwS3VDdTh1OHdJWVJWUitoVHJnYW42cHprNGZMT0hQRkxyeSs5QmZ0eUVlV3dMbldwYStjYTkyRlBST2psWUZYNGt6YlgydXhxZGw2RHMwRGl2bVkwdTFNcHUxZFB4SnpBVXhDZnJ5QU0vbnRrOWtDS3RZRGRjalNzMkZTR0s0TWlJYU1PTmNWd3lCNHk1d3dOaUJ0VDB5WGRRQTJFY
 
 ```
+# Creation of Management Cluster 
 
 ```
-CLUSTER_ANNOTATIONS: 'description:,location:'
-CLUSTER_CIDR: 100.96.0.0/11
-CLUSTER_NAME: rt-tkg01-mgmt-dev
-CLUSTER_PLAN: dev
+tanzu management-cluster create --file tkg-mgmt-01.yaml 
 ```
 
+![image](img/ClusterCreate.png)
 
 References
 - [Deploy Management Clusters from a Configuration File](https://docs.vmware.com/en/VMware-Tanzu-Kubernetes-Grid/2.4/tkg-deploy-mc/mgmt-deploy-file.html))

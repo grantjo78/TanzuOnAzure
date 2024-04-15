@@ -1,10 +1,13 @@
 # Troubleshooting and Issues
 
-- [Logs](#logs)
-  - [TKG Deployment Logs](#tkg-deployment-logs)
-  - [Azure Activty Logs](#azure-activity-logs)
-- [Issues](#issues)
-  - [I01: Error: edition not found](#i01-error-edition-not-found)
+- [Troubleshooting and Issues](#troubleshooting-and-issues)
+  - [Logs](#logs)
+    - [TKG Deployment Logs](#tkg-deployment-logs)
+    - [Azure Activity Logs](#azure-activity-logs)
+  - [Issues](#issues)
+    - [I01: Error: edition not found](#i01-error-edition-not-found)
+    - [I02: Route table not associated with subnet](#i02-route-table-not-associated-with-subnet)
+    - [I03: Network Security Group not found](#i03-network-security-group-not-found)
 
 ## Logs
 [TKG Deployment Logs](#tkg-deployment-logs)<br>
@@ -40,3 +43,6 @@ To resolve this issue, install Tanzu Cli 1.1.0 using the following command.
 sudo apt install -y tanzu-cli=1.1.0 --allow-downgrade
 ```
 
+### I02: Route table not associated with subnet
+
+### I03: Network Security Group not found
